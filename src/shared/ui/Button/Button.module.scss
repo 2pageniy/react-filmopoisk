@@ -1,0 +1,28 @@
+.btn {
+    min-height: 40px;
+    min-width: 70px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    &-primary {
+        color: white;
+        background-color: var(--orange);
+
+        &:hover {
+            background-color: var(--orange-hover);
+        }
+    }
+
+    &-clear {
+        color: var(--orange);
+        border: 1px solid var(--orange);
+
+        &:hover {
+            color: var(--orange-hover);
+            border: 1px solid var(--orange-hover);
+        }
+    }
+}

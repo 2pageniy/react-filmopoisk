@@ -1,0 +1,19 @@
+.input {
+    min-width: 70px;
+    min-height: 40px;
+    padding: 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+
+    background-color: white;
+
+    &:focus {
+        border: 1px solid var(--orange);
+    }
+
+    &-error {
+        border: 1px solid var(--error);
+    }
+}
