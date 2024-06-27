@@ -11,7 +11,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChan
 }
 
 export const Input: FC<InputProps> = ({
-    cls = '',
+    cls,
     value,
     onChange = () => {},
     error = false,
@@ -23,7 +23,7 @@ export const Input: FC<InputProps> = ({
 
     return (
         <input
-            className={classNames(cl.input, {[cl['input-error']]: error}, cl[cls])}
+            className={classNames(cl.input, {[cl['input-error']]: error}, cls)}
             onChange={onChangeHandler}
             value={value}
             {...props}

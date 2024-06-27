@@ -1,6 +1,6 @@
 import {Suspense} from "react";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import {MainPage} from "../page/Main";
+import {MainPage} from "src/page/Main";
 
 export const App = () => {
     const router = createBrowserRouter([

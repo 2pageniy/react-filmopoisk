@@ -1,11 +1,17 @@
-
 import './Main.module.scss';
-import {Select} from "../../../shared/ui/Select/Select.tsx";
+import {SearchInput} from 'src/features/SearchInput';
+import {useDebounce} from 'src/shared/lib/hooks/useDebounce.tsx';
 
 const MainPage = () => {
+
+    const onSearch = useDebounce((value: string) => {
+        console.log(value);
+    }, 500)
+
     return (
         <main>
-            <Select
+            <SearchInput
+                onSearch={onSearch}
             />
         </main>
     );
