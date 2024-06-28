@@ -1,0 +1,33 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: var(--navbar-height);
+    padding: 24px 32px;
+
+    background-color: var(--navbar-background-color);
+}
+
+.header {
+    font-size: 32px;
+    color: white;
+}
+
+.login {
+    display: flex;
+    gap: 24px;
+
+    .person {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 32px;
+    }
+}
+

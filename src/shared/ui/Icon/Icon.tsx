@@ -6,7 +6,7 @@ import cl from './Icon.module.scss';
 interface IconProps {
     src: string;
     alt?: string;
-    size?: 'xsmall' | 'small' | 'medium' | 'large';
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
     cls?: string;
 }
 

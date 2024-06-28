@@ -1,11 +1,13 @@
 import {FC, useCallback, useState} from 'react';
 import {Input} from 'src/shared/ui/Input';
 import {Icon} from 'src/shared/ui/Icon';
+import {Button} from "src/shared/ui/Button";
+import {useDebounce} from "src/shared/lib/hooks/useDebounce";
 import SearchIcon from 'src/shared/assets/icons/search.svg'
 import CloseIcon from 'src/shared/assets/icons/clear.svg'
 
 import cl from './SearchInput.module.scss';
-import {Button} from "src/shared/ui/Button";
+
 
 interface SearchInputProps {
     onSearch: (value: string) => void;
@@ -16,10 +18,11 @@ export const SearchInput: FC<SearchInputProps> = ({
 }) => {
     const [value, setValue] = useState('');
 
+    const onHandleSearch = useDebounce(onSearch, 500);
     const onChange = useCallback((value: string) => {
-        onSearch(value);
+        onHandleSearch(value);
         setValue(value);
-    }, [onSearch]);
+    }, [onHandleSearch]);
 
     return (
         <div className={cl.wrapper}>

@@ -5,30 +5,35 @@ import {Icon} from "src/shared/ui/Icon";
 import CloseIcon from 'src/shared/assets/icons/close.svg';
 
 import cl from './Modal.module.scss';
+import classNames from "classnames";
 
 
 interface ModalProps {
     title: string;
+    isOpen: boolean;
     onClose: () => void;
     children: ReactNode;
+    cls?: string;
 }
 
 export const Modal: FC<ModalProps> = ({
     title,
+    isOpen,
     onClose,
-    children
+    cls,
+    children,
 }) => {
-    return (
+    return isOpen && (
         <Portal>
             <div
                 className={cl.background}
-                onClick={onClose}
+                onMouseDown={onClose}
             >
                 <div
-                    onClick={(e) => {
+                    onMouseDown={(e) => {
                         e.stopPropagation();
                     }}
-                    className={cl.modal}
+                    className={classNames(cl.modal, cls)}
                 >
                     <div className={cl.header}>
                         <h3 className={cl.title}>
