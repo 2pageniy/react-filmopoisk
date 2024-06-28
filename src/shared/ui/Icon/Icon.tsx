@@ -6,19 +6,21 @@ import cl from './Icon.module.scss';
 interface IconProps {
     src: string;
     alt?: string;
+    size?: 'xsmall' | 'small' | 'medium' | 'large';
     cls?: string;
 }
 
 export const Icon= memo(({
     src,
-    alt = '',
+    alt,
+    size = 'medium',
     cls
 }: IconProps) => {
     return (
         <img
             src={src}
             alt={alt}
-            className={classNames(cl.img, cls)}
+            className={classNames(cl.img, cl[size], cls)}
         />
     );
 });

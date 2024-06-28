@@ -1,10 +1,16 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
 .input {
     min-width: 70px;
     min-height: 40px;
     padding: 12px;
 
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     outline: none;
 
     background-color: white;
@@ -16,4 +22,14 @@
     &-error {
         border: 1px solid var(--error);
     }
+}
+
+.label {
+    margin-bottom: 4px;
+}
+
+.required {
+    position: relative;
+    top: -5px;
+    left: 5px;
 }

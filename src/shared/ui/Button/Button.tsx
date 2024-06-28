@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import cl from './Button.module.scss';
 
-type ButtonType = 'primary' | 'clear';
+type ButtonType = 'primary' | 'clear' | 'transparent';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     btnType?: ButtonType;
