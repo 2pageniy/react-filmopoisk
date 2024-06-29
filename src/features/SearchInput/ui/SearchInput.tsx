@@ -7,16 +7,23 @@ import SearchIcon from 'src/shared/assets/icons/search.svg'
 import CloseIcon from 'src/shared/assets/icons/clear.svg'
 
 import cl from './SearchInput.module.scss';
+import classNames from "classnames";
 
 
 interface SearchInputProps {
     onSearch: (value: string) => void;
+    placeholder?: string;
+    initialValue?: string;
+    cls?: string;
 }
 
 export const SearchInput: FC<SearchInputProps> = ({
-    onSearch
+    onSearch,
+    placeholder,
+    initialValue,
+    cls
 }) => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(initialValue ?? '');
 
     const onHandleSearch = useDebounce(onSearch, 500);
     const onChange = useCallback((value: string) => {
@@ -31,9 +38,10 @@ export const SearchInput: FC<SearchInputProps> = ({
                 src={SearchIcon}
             />
             <Input
-                cls={cl.input}
+                cls={classNames(cl.input, cls)}
                 onChange={onChange}
                 value={value}
+                placeholder={placeholder}
             />
             {value.length !== 0 && (
                 <Button

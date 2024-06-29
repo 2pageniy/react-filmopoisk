@@ -1,12 +1,15 @@
 import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
 import {StateSchema} from "src/app/providers/store/config/types";
 import {loginReducer} from "src/features/Auth";
+import {filmsApi} from "src/features/FilmList/api/getFilms.ts";
 
 const rootReducer: ReducersMapObject<StateSchema> = {
-    login: loginReducer
+    login: loginReducer,
+    [filmsApi.reducerPath]: filmsApi.reducer,
 };
 
 export const store = configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(filmsApi.middleware),
 });

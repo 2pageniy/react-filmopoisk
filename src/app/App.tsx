@@ -10,6 +10,10 @@ export const App = () => {
             path: "/",
             element: <MainPage />,
         },
+        {
+            path: "/",
+            element: <MainPage />,
+        },
     ]);
     return (
         <StoreProvider>

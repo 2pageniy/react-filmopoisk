@@ -5,9 +5,11 @@
     max-width: 1400px;
     min-height: 100px;
     padding: 24px;
-    margin: 16px;
+    margin: 16px 0;
 
     border-radius: var(--border-radius);
+
+    background-color: white;
 
     .image {
         width: 100px;
@@ -18,9 +20,17 @@
         background-color: red;
     }
 
+    .info {
+        flex-shrink: 2;
+    }
+
     .h3 {
         font-size: 20px;
         margin-bottom: 16px;
+    }
+
+    .rating {
+        margin-left: auto;
     }
 }
 

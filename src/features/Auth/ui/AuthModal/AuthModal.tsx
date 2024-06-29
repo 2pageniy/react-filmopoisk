@@ -1,6 +1,6 @@
 import {useCallback, useState} from "react";
 import {Button} from "src/shared/ui/Button";
-import {AuthForm} from "../AuthForm/AuthForm.tsx";
+import {AuthForm} from "../AuthForm/AuthForm";
 
 export const AuthModal = () => {
     const [isOpen, setIsOpen] = useState(false);

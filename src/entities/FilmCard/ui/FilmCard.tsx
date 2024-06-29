@@ -1,5 +1,6 @@
 import {FC} from "react";
 import {DisplayField} from "src/shared/ui/DisplayField";
+import {Rating} from "src/entities/Rating";
 
 import cl from './FilmCard.module.scss';
 
@@ -8,7 +9,7 @@ interface FilmCardProps {
     genre: string;
     yearRelease: number;
     description: string;
-    src: string;
+    image: string;
 }
 
 export const FilmCard: FC<FilmCardProps> = ({
@@ -16,13 +17,13 @@ export const FilmCard: FC<FilmCardProps> = ({
     genre,
     yearRelease,
     description,
-    src
+    image
 }) => {
     return (
         <div className={cl.card}>
             <img
                 className={cl.image}
-                src={src}
+                src={image}
                 alt={name}
             />
             <div className={cl.info}>
@@ -42,6 +43,11 @@ export const FilmCard: FC<FilmCardProps> = ({
                     content={description}
                 />
             </div>
+            <Rating
+                rating={2}
+                onFocus={false}
+                cls={cl.rating}
+            />
         </div>
     );
 };

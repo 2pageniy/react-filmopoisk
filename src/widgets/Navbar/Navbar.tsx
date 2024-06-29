@@ -8,7 +8,6 @@ import {AuthModal, getIsAuth, loginActions} from "src/features/Auth";
 
 import cl from './Navbar.module.scss';
 
-
 export const Navbar = () => {
     const dispatch = useAppDispatch();
     const isAuth = useSelector(getIsAuth);

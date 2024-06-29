@@ -9,17 +9,18 @@ import classNames from "classnames";
 
 interface RatingProps {
     rating: number;
-    color: 'orange' | 'gray';
     onFocus: boolean;
+    cls?: string;
 }
 
 export const Rating: FC<RatingProps> = ({
     rating = 4,
     onFocus,
+    cls
 }) => {
     return (
         <div
-            className={cl.rating}
+            className={classNames(cl.rating, cls)}
         >
             {new Array(5).fill(0).map((_, i) => {
                 const isFilled = rating >= i + 1;

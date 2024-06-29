@@ -1,12 +1,12 @@
 import {FC, ReactNode} from "react";
+import classNames from "classnames";
 import {Portal} from "src/shared/ui/Portal";
 import {Button} from "src/shared/ui/Button";
 import {Icon} from "src/shared/ui/Icon";
 import CloseIcon from 'src/shared/assets/icons/close.svg';
+import {Card} from "src/shared/ui/Card";
 
 import cl from './Modal.module.scss';
-import classNames from "classnames";
-
 
 interface ModalProps {
     title: string;
@@ -29,16 +29,10 @@ export const Modal: FC<ModalProps> = ({
                 className={cl.background}
                 onMouseDown={onClose}
             >
-                <div
-                    onMouseDown={(e) => {
-                        e.stopPropagation();
-                    }}
-                    className={classNames(cl.modal, cls)}
-                >
-                    <div className={cl.header}>
-                        <h3 className={cl.title}>
-                            {title}
-                        </h3>
+                <Card
+                    cls={classNames(cl.modal, cls)}
+                    title={title}
+                    controls={(
                         <div className={cl.close}>
                             <Button
                                 btnType='transparent'
@@ -50,11 +44,10 @@ export const Modal: FC<ModalProps> = ({
                                 />
                             </Button>
                         </div>
-                    </div>
-                    <div className={cl.content}>
-                        {children}
-                    </div>
-                </div>
+                    )}
+                >
+                    {children}
+                </Card>
             </div>
         </Portal>
     );
