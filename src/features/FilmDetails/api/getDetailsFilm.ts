@@ -33,7 +33,18 @@ export const filmsDetailsApi = createApi({
                     }
                 }
             },
+            async onQueryStarted(params, { dispatch, queryFulfilled }) {
+                const { data } = await queryFulfilled
+                dispatch(
+                    filmsDetailsApi.util.updateQueryData('getDetailsFilm', {id: params.movieId}, (draft) => {
+                        Object.assign(draft, {
+                            rating: data.newAverageRate
+                        })
+                    })
+                )
+            }
         }),
+
     }),
 })
 
