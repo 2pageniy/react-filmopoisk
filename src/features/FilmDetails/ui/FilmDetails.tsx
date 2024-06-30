@@ -2,17 +2,14 @@ import {FC, useCallback, useEffect, useState} from "react";
 import {useGetDetailsFilmQuery, useRateMovieMutation} from "../api/getDetailsFilm";
 import {Loader} from "src/shared/ui/Loader";
 import {DisplayField} from "src/shared/ui/DisplayField";
-import {Rating} from "src/entities/Rating";
 import {ActorCard} from "src/entities/ActorCard";
 import {Icon} from "src/shared/ui/Icon";
 import {Button} from "src/shared/ui/Button";
 import ArrowRightIcon from 'src/shared/assets/icons/arrow-right.svg';
 import ArrowLeftIcon from 'src/shared/assets/icons/arrow-left.svg';
+import {SetRating} from "src/features/SetRating";
 
 import cl from './FilmDetails.module.scss';
-import {RATING_LOCAL_STORAGE} from "src/shared/const/localStorage.ts";
-import {useSelector} from "react-redux";
-import {getIsAuth} from "src/features/Auth";
 
 interface FilmDetailsProps {
     id: string;
@@ -24,13 +21,9 @@ export const FilmDetails: FC<FilmDetailsProps> = ({
 }) => {
     const {data, isFetching} = useGetDetailsFilmQuery({id});
     const [rateMovie] = useRateMovieMutation();
-    const isAuth = useSelector(getIsAuth);
     const [ref, setRef] = useState<HTMLDivElement | null>(null);
     const [isManyActors, setIsManyActors] = useState(false);
     const [isMoved, setIsMoved] = useState(false);
-    const [isFocus, setIsFocus] = useState(false);
-    const [rating, setRating] = useState(0);
-    const ratingUser = JSON.parse(localStorage.getItem(RATING_LOCAL_STORAGE) || '{}')[id];
 
     useEffect(() => {
         if (ref) {
@@ -103,22 +96,12 @@ export const FilmDetails: FC<FilmDetailsProps> = ({
                         {data.description}
                     </div>
                 </div>
-                <Rating
-                    rating={(isAuth && isFocus) ? rating : (ratingUser || +data.rating)}
-                    onFocus={isAuth && isFocus}
-                    cls={cl.rating}
-                    setRating={setRating}
-                    setFocus={setIsFocus}
-                    onClick={() => {
-                        if (isAuth) {
-                            rateMovie({
-                                movieId: id,
-                                user_rate: rating
-                            });
-                        }
-                    }}
+                <SetRating
+                    initialRating={+data.rating}
+                    rateMovie={rateMovie}
+                    movieId={id}
+                    details
                 />
-
             </div>
             <div
                 className={cl['actors-title']}

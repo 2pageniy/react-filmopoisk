@@ -1,7 +1,8 @@
 import {FC} from "react";
 import {useNavigate} from "react-router-dom";
 import {DisplayField} from "src/shared/ui/DisplayField";
-import {Rating} from "src/entities/Rating";
+import {SetRating} from "src/features/SetRating";
+import {useRateMovieMutation} from "src/features/FilmDetails/api/getDetailsFilm.ts";
 
 import cl from './FilmCard.module.scss';
 
@@ -25,6 +26,7 @@ export const FilmCard: FC<FilmCardProps> = ({
     rating
 }) => {
     const navigate = useNavigate();
+    const [rateMovie] = useRateMovieMutation();
 
     const onClickFilm = () => {
         navigate(`/movie/${id}`);
@@ -57,10 +59,10 @@ export const FilmCard: FC<FilmCardProps> = ({
                     content={description}
                 />
             </div>
-            <Rating
-                rating={+rating}
-                onFocus={false}
-                cls={cl.rating}
+            <SetRating
+                rateMovie={rateMovie}
+                initialRating={+rating}
+                movieId={id}
             />
         </div>
     );

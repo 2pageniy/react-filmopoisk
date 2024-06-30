@@ -27,8 +27,6 @@ export const FilmList: FC<FilmListProps> = ({
         release_year: yearRelease,
         page,
         title: search
-    }, {
-        refetchOnMountOrArgChange: true
     });
 
     if (isFetching) {

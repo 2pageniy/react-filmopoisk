@@ -33,7 +33,10 @@ export const Rating: FC<RatingProps> = ({
                 setFocus(true);
             }}
             onMouseLeave={() => setFocus(false)}
-            onClick={onHandleClick}
+            onClick={(e) => {
+                onHandleClick();
+                e.stopPropagation();
+            }}
         >
             {new Array(5).fill(0).map((_, i) => {
                 const isFilled = rating >= i + 1;
