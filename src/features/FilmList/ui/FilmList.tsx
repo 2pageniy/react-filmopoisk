@@ -1,12 +1,11 @@
 import {FC, useState} from "react";
-import {Icon} from "src/shared/ui/Icon";
-import LoaderIcon from "src/shared/assets/icons/loader.svg";
+import {useSearchParams} from "react-router-dom";
 import {FilmCard} from "src/entities/FilmCard";
 import {Pagination} from "src/entities/Pagination";
+import {Loader} from "src/shared/ui/Loader";
 import {useGetFilmsQuery} from "../api/getFilms";
 
 import cl from "src/widgets/Films/ui/Films.module.scss";
-import {useSearchParams} from "react-router-dom";
 
 interface FilmListProps {
     genre: string;
@@ -23,7 +22,7 @@ export const FilmList: FC<FilmListProps> = ({
     const [page, setPage] = useState<number>(
         +(searchParams.get('page') as string) === 0 ? 1 : +(searchParams.get('page') as string)
     );
-    const {data, isFetching} = useGetFilmsQuery({
+    const {data, isFetching, error} = useGetFilmsQuery({
         genre,
         release_year: yearRelease,
         page,
@@ -34,11 +33,15 @@ export const FilmList: FC<FilmListProps> = ({
 
     if (isFetching) {
         return (
-            <Icon
-                src={LoaderIcon}
-                size='xlarge'
-                cls={cl.loader}
-            />
+            <Loader />
+        );
+    }
+
+    if (error) {
+        return (
+            <>
+                Ошибка
+            </>
         );
     }
 
@@ -47,11 +50,13 @@ export const FilmList: FC<FilmListProps> = ({
             {data?.search_result.map((film) => (
                 <FilmCard
                     key={film.id}
+                    id={film.id}
                     name={film.title}
                     genre={film.genre}
                     yearRelease={film.release_year}
                     description={film.description}
                     image={film.poster}
+                    rating={film.rating}
                 />
             ))}
             {data?.search_result?.length !== 0 && (

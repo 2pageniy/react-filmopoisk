@@ -9,6 +9,7 @@ interface CardProps {
     sizeTitle?: 'medium' | 'small';
     children: ReactNode;
     controls?: ReactNode;
+    aside?: ReactNode;
 }
 
 export const Card: FC<CardProps> = ({

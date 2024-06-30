@@ -1,28 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import {API_URL} from "src/shared/const/api.ts";
 import {addQueryParams} from "src/shared/lib/url/addQueryParams.ts";
-
-interface Film {
-    id: string;
-    title: string;
-    description: string;
-    genre: string;
-    rating: number;
-    release_year: number;
-    poster: string;
-}
-
-interface FilmParams {
-    release_year: string;
-    genre: string;
-    title: string;
-    page: number;
-}
-
-interface FilmsResponse {
-    total_pages: number;
-    search_result: Film[];
-}
+import type {FilmParams, FilmsResponse} from "../modal/types";
 
 export const filmsApi = createApi({
     reducerPath: 'filmsApi',
@@ -41,7 +20,6 @@ export const filmsApi = createApi({
                     title: titleParams,
                     page: page.toString()
                 });
-                console.log(page)
 
                 return {
                     url: 'v1/search',

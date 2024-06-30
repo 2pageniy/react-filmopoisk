@@ -1,0 +1,89 @@
+.wrapper {
+    margin: 0 32px;
+}
+
+.card {
+    display: flex;
+    gap: 32px;
+
+    max-width: 1900px;
+    max-height: 550px;
+    padding: 24px;
+    margin: 24px 0;
+
+    border-radius: var(--border-radius);
+
+    background-color: white;
+    overflow: hidden;
+
+    .image {
+        width: 400px;
+        height: 500px;
+
+        border-radius: var(--border-radius);
+    }
+}
+
+.h2 {
+    font-size: 32px;
+    margin-bottom: 36px;
+}
+
+.rating {
+    align-self: flex-start;
+    margin-left: auto;
+}
+
+.description {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.actors-title {
+    color: #1B1F23;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.actors {
+    position: relative;
+    display: flex;
+    gap: 24px;
+    padding-bottom: 24px;
+    height: 300px;
+
+    overflow: hidden;
+
+    .btn-next,
+    .btn-prev {
+        width: 48px;
+        height: 48px;
+
+        position: absolute;
+        right: 0;
+        top: 50%;
+
+        background-color: white;
+        border-radius: 32px;
+
+        transform: translateY(-100%);
+
+        z-index: 2;
+    }
+
+    .btn-prev {
+        left: 0;
+    }
+
+    &-wrapper {
+        display: flex;
+        gap: 24px;
+        height: 250px;
+        top: 0;
+        left: 0;
+        position: absolute;
+
+        transition: left 0.3s;
+    }
+}

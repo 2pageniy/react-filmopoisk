@@ -3,16 +3,27 @@
     gap: 10px;
     margin-bottom: 12px;
 
-    .title {
-        min-width: 90px;
-        color: var(--text-gray);
-
-        word-wrap: break-word;
-    }
-
     .content {
         max-width: 600px;
-
         word-wrap: break-word;
+
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &.standard {
+        .title {
+            min-width: 90px;
+            color: var(--text-gray);
+
+            word-wrap: break-word;
+        }
+    }
+
+    &.bold {
+        .title {
+            font-weight: bold;
+        }
     }
 }

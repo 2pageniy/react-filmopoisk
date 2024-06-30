@@ -1,26 +1,40 @@
 import {FC} from "react";
+import {useNavigate} from "react-router-dom";
 import {DisplayField} from "src/shared/ui/DisplayField";
 import {Rating} from "src/entities/Rating";
 
 import cl from './FilmCard.module.scss';
 
 interface FilmCardProps {
+    id: string;
     name: string;
     genre: string;
     yearRelease: number;
     description: string;
     image: string;
+    rating: string;
 }
 
 export const FilmCard: FC<FilmCardProps> = ({
+    id,
     name,
     genre,
     yearRelease,
     description,
-    image
+    image,
+    rating
 }) => {
+    const navigate = useNavigate();
+
+    const onClickFilm = () => {
+        navigate(`/movie/${id}`);
+    };
+
     return (
-        <div className={cl.card}>
+        <div
+            onClick={onClickFilm}
+            className={cl.card}
+        >
             <img
                 className={cl.image}
                 src={image}
@@ -44,7 +58,7 @@ export const FilmCard: FC<FilmCardProps> = ({
                 />
             </div>
             <Rating
-                rating={2}
+                rating={+rating}
                 onFocus={false}
                 cls={cl.rating}
             />

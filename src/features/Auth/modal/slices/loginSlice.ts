@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import {LoginSchema} from "../types/types";
 import {loginByUsername} from "src/features/Auth/modal/services/loginByUsername";
-import {AUTH_TOKEN_LOCAL_STORAGE} from "src/shared/const/localeStorage.ts";
+import {AUTH_TOKEN_LOCAL_STORAGE} from "src/shared/const/localStorage.ts";
 
 const initialState: LoginSchema = {
     name: '',
@@ -39,7 +39,6 @@ export const loginSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(loginByUsername.fulfilled, (state, action) => {
             if (action.payload.token) {
-                localStorage.setItem(AUTH_TOKEN_LOCAL_STORAGE, action.payload.token);
                 state.isAuth = true;
             }
         });

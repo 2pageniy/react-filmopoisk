@@ -6,25 +6,9 @@
     margin: 20px 32px;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(-360deg); }
-}
-
 .main {
     position: relative;
     width: 100%;
-
-    .loader {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-
-        width: 40px;
-        height: 40px;
-
-        animation: 1s linear infinite spin;
-    }
 }
 
 .search {

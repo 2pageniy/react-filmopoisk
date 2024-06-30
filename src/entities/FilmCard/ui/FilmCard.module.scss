@@ -11,13 +11,13 @@
 
     background-color: white;
 
+    cursor: pointer;
+
     .image {
         width: 100px;
         height: 120px;
 
         border-radius: var(--border-radius);
-
-        background-color: red;
     }
 
     .info {

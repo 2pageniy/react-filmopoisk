@@ -75,6 +75,7 @@ export const AuthForm: FC<AuthFormProps> = ({
                 <Button
                     onClick={onLogin}
                     disabled={name.length === 0 || password.length === 0}
+                    type='submit'
                 >
                     Войти
                 </Button>
