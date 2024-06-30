@@ -19,8 +19,8 @@ interface FilmDetailsProps {
 export const FilmDetails: FC<FilmDetailsProps> = ({
     id
 }) => {
-    const {data, isFetching} = useGetDetailsFilmQuery({id});
-    const [rateMovie] = useRateMovieMutation();
+    const {data, isFetching, error} = useGetDetailsFilmQuery({id});
+    const [rateMovie, result] = useRateMovieMutation();
     const [ref, setRef] = useState<HTMLDivElement | null>(null);
     const [isManyActors, setIsManyActors] = useState(false);
     const [isMoved, setIsMoved] = useState(false);
@@ -32,6 +32,12 @@ export const FilmDetails: FC<FilmDetailsProps> = ({
             }
         }
     }, [ref]);
+
+    useEffect(() => {
+        if (result.isError) {
+            console.error(result.error);
+        }
+    }, [result]);
 
     const onClickBtn = useCallback(() => {
         setIsMoved(!isMoved);
@@ -50,7 +56,7 @@ export const FilmDetails: FC<FilmDetailsProps> = ({
         );
     }
 
-    if (!data) {
+    if (!data || error) {
         return (
             'Нет фильма'
         );

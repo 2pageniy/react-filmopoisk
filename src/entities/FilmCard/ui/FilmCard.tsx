@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {DisplayField} from "src/shared/ui/DisplayField";
 import {SetRating} from "src/features/SetRating";
@@ -26,11 +26,17 @@ export const FilmCard: FC<FilmCardProps> = ({
     rating
 }) => {
     const navigate = useNavigate();
-    const [rateMovie] = useRateMovieMutation();
+    const [rateMovie, result] = useRateMovieMutation();
 
     const onClickFilm = () => {
         navigate(`/movie/${id}`);
     };
+
+    useEffect(() => {
+        if (result.isError) {
+            console.error(result.error);
+        }
+    }, [result]);
 
     return (
         <div
