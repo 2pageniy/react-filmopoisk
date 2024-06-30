@@ -19,10 +19,12 @@ export const ActorCard: FC<ActorCardProps> = ({
         >
             <div
             >
-                <img
+                <Image
                     className={cl.image}
                     src={image}
                     alt={name}
+                    width={160}
+                    height={230}
                 />
             </div>
             <div className={cl.name}>

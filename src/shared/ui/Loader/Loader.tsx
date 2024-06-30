@@ -1,5 +1,3 @@
-'use client';
-
 import LoaderIcon from "src/shared/assets/icons/loader.svg";
 import {Icon} from "src/shared/ui/Icon";
 

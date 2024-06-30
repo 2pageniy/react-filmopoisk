@@ -35,6 +35,9 @@ export const FilmCard: FC<FilmCardProps> = ({
                 className={cl.image}
                 src={image}
                 alt={name}
+                width={100}
+                height={120}
+                loading="lazy"
             />
             <div className={cl.info}>
                 <h3 className={cl.h3}>

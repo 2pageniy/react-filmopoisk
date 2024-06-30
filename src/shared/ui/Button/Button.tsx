@@ -1,5 +1,3 @@
-'use client';
-
 import {ButtonHTMLAttributes, FC, ReactNode} from "react";
 import classNames from "classnames";
 

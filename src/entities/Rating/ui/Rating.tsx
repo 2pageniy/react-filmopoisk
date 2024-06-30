@@ -36,6 +36,7 @@ export const Rating: FC<RatingProps> = ({
             onClick={(e) => {
                 onHandleClick();
                 e.stopPropagation();
+                e.preventDefault();
             }}
         >
             {new Array(5).fill(0).map((_, i) => {

@@ -1,5 +1,3 @@
-'use client';
-
 import {FC} from "react";
 import {Card} from "src/shared/ui/Card";
 import {Select} from "src/shared/ui/Select/Select";

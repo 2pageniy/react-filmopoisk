@@ -1,5 +1,3 @@
-'use client';
-
 import {ChangeEvent, FC, InputHTMLAttributes} from "react";
 import classNames from "classnames";
 import RequiredIcon from 'src/shared/assets/icons/required.svg';
