@@ -1,9 +1,11 @@
+'use client';
+
 import {FC, useCallback} from "react";
 import {useSelector} from "react-redux";
 import {Input} from "src/shared/ui/Input";
 import {Button} from "src/shared/ui/Button";
 import {Modal} from "src/shared/ui/Modal";
-import {useAppDispatch} from "src/app/providers/store";
+import {useAppDispatch} from "src/main_app/providers/store";
 import {loginActions} from "../../modal/slices/loginSlice";
 import {getLoginName} from "../../modal/selectors/getLoginName";
 import {getLoginPassword} from "../../modal/selectors/getLoginPassword";
@@ -11,7 +13,6 @@ import {loginByUsername} from "../../modal/services/loginByUsername";
 import {getIsAuth} from "../../modal/selectors/getIsAuth";
 
 import cl from './AuthForm.module.scss';
-
 
 interface AuthFormProps {
     isOpen: boolean;

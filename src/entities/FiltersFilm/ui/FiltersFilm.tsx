@@ -1,7 +1,9 @@
+'use client';
+
 import {FC} from "react";
 import {Card} from "src/shared/ui/Card";
 import {Select} from "src/shared/ui/Select/Select";
-import {GENRES, TGenresKeys, TYearsKeys, YEARS} from "../const/const.ts";
+import {GENRES, TGenresKeys, TYearsKeys, YEARS} from "../const/const";
 
 import cl from './FiltersFilm.module.scss';
 

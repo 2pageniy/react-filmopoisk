@@ -1,4 +1,4 @@
-import {API_URL} from "src/shared/const/api.ts";
+import {API_URL} from "src/shared/const/api";
 
 interface RequestOptions {
     method?: 'GET' | 'POST';

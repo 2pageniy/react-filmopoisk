@@ -1,3 +1,5 @@
+'use client';
+
 import {FC, MouseEvent, useState} from 'react';
 import classNames from 'classnames';
 import SelectUpIcon from 'src/shared/assets/icons/select-up.svg'

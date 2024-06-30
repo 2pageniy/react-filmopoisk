@@ -1,8 +1,10 @@
+'use client';
+
 import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
-import {StateSchema} from "src/app/providers/store/config/types";
+import {StateSchema} from "src/main_app/providers/store/config/types";
 import {loginReducer} from "src/features/Auth";
-import {filmsApi} from "src/features/FilmList/api/getFilms.ts";
-import {filmsDetailsApi} from "src/features/FilmDetails/api/getDetailsFilm.ts";
+import {filmsApi} from "src/features/FilmList/api/getFilms";
+import {filmsDetailsApi} from "src/features/FilmDetails/api/getDetailsFilm";
 
 const rootReducer: ReducersMapObject<StateSchema> = {
     login: loginReducer,

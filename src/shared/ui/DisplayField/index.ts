@@ -1,1 +1,1 @@
-export {DisplayField} from './DisplayField.tsx';
+export {DisplayField} from './DisplayField';

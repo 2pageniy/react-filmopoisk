@@ -1,14 +1,16 @@
+'use client';
+
 import {useState} from "react";
-import {useSearchParams} from "react-router-dom";
+import {useSearchParams} from "next/navigation";
 import FiltersFilm from "src/entities/FiltersFilm/ui/FiltersFilm";
 import {SearchInput} from "src/features/SearchInput";
 import {FilmList} from "src/features/FilmList";
-import {TGenresKeys, TYearsKeys} from "src/entities/FiltersFilm/const/const.ts";
+import {TGenresKeys, TYearsKeys} from "src/entities/FiltersFilm/const/const";
 
 import cl from './Films.module.scss';
 
 export const Films = () => {
-    const [searchParams] = useSearchParams();
+    const searchParams = useSearchParams();
     const [yearRelease, setYearRelease] = useState<TYearsKeys>(searchParams.get('release_year') as TYearsKeys ?? '0');
     const [genre, setGenre] = useState<TGenresKeys>(searchParams.get('genre') as TGenresKeys ?? '0');
     const [search, setSearch] = useState<string>(searchParams.get('title') as string ?? '');

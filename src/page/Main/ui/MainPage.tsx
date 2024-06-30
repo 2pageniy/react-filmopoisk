@@ -1,6 +1,6 @@
 import {Films} from "src/widgets/Films";
 
-const MainPage = () => {
+export const MainPage = () => {
     return (
         <main>
             <Films />

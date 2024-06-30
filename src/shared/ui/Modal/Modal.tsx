@@ -1,3 +1,5 @@
+'use client';
+
 import {FC, ReactNode} from "react";
 import classNames from "classnames";
 import {Portal} from "src/shared/ui/Portal";

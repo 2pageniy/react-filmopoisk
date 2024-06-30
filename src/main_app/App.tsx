@@ -3,7 +3,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {MainPage} from "src/page/Main";
 import {FilmDetailsPage} from "src/page/FilmDetails";
 import {Navbar} from "src/widgets/Navbar";
-import {StoreProvider} from "src/app/providers/store";
+import {StoreProvider} from "src/main_app/providers/store";
 
 export const App = () => {
     const router = createBrowserRouter([

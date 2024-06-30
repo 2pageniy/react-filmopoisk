@@ -1,5 +1,7 @@
+'use client';
+
 import {FC, useState} from "react";
-import {useSearchParams} from "react-router-dom";
+import {useSearchParams} from "next/navigation";
 import {FilmCard} from "src/entities/FilmCard";
 import {Pagination} from "src/entities/Pagination";
 import {Loader} from "src/shared/ui/Loader";
@@ -18,7 +20,7 @@ export const FilmList: FC<FilmListProps> = ({
     yearRelease,
     search,
 }) => {
-    const [searchParams] = useSearchParams();
+    const searchParams = useSearchParams();
     const [page, setPage] = useState<number>(
         +(searchParams.get('page') as string) === 0 ? 1 : +(searchParams.get('page') as string)
     );

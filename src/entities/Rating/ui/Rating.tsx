@@ -6,7 +6,7 @@ import StarFilledOrangeIcon from 'src/shared/assets/icons/star-filled-orange.svg
 
 import cl from './Rating.module.scss';
 import classNames from "classnames";
-import {useDebounce} from "src/shared/lib/hooks/useDebounce.tsx";
+import {useDebounce} from "src/shared/lib/hooks/useDebounce";
 
 interface RatingProps {
     rating: number;

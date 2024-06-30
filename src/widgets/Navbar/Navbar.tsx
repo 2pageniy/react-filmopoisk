@@ -1,9 +1,11 @@
+'use client';
+
 import {useCallback, useEffect} from "react";
 import {useSelector} from "react-redux";
 import {Button} from "src/shared/ui/Button";
 import {Icon} from "src/shared/ui/Icon";
 import PersonIcon from 'src/shared/assets/icons/person.svg';
-import {useAppDispatch} from "src/app/providers/store";
+import {useAppDispatch} from "src/main_app/providers/store";
 import {AuthModal, getIsAuth, loginActions} from "src/features/Auth";
 
 import cl from './Navbar.module.scss';

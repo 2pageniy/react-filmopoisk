@@ -2,8 +2,8 @@ import {FC, useState} from "react";
 import {useSelector} from "react-redux";
 import {Rating} from "src/entities/Rating";
 import {getIsAuth} from "src/features/Auth";
-import {RATING_LOCAL_STORAGE} from "src/shared/const/localStorage.ts";
-import {RateMovieParams} from "src/features/FilmDetails/modal/types.ts";
+import {RATING_LOCAL_STORAGE} from "src/shared/const/localStorage";
+import {RateMovieParams} from "src/features/FilmDetails/modal/types";
 
 import cl from "src/features/FilmDetails/ui/FilmDetails.module.scss";
 

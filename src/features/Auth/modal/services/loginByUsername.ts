@@ -1,7 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {ThunkConfig} from "src/app/providers/store";
-import {request} from "src/shared/lib/fetch/request.ts";
-import {AUTH_TOKEN_LOCAL_STORAGE} from "src/shared/const/localStorage.ts";
+import {ThunkConfig} from "src/main_app/providers/store";
+import {request} from "src/shared/lib/fetch/request";
+import {AUTH_TOKEN_LOCAL_STORAGE} from "src/shared/const/localStorage";
 
 interface loginByUsernameResponse {
     token: string;

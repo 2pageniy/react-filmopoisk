@@ -1,5 +1,8 @@
+'use client';
+
 import cl from './ActorCard.module.scss';
 import {FC} from "react";
+import Image from "next/image";
 
 interface ActorCardProps {
     image: string;

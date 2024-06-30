@@ -1,23 +1,18 @@
-import {useParams} from "react-router-dom";
-import {FilmDetails} from "src/features/FilmDetails/ui/FilmDetails.tsx";
+import {FilmDetails} from "src/features/FilmDetails/ui/FilmDetails";
+import {FC} from "react";
 
-const FilmDetailsPage = () => {
-    const { id } = useParams<{ id: string }>();
+interface FilmDetailsPageProps {
+    id: string;
+}
 
-    if (!id) {
-        return (
-            <main>
-                Не найдено
-            </main>
-        )
-    }
-
+export const FilmDetailsPage: FC<FilmDetailsPageProps> = ({
+    id
+}) => {
     return (
         <main>
             <FilmDetails
                 id={id}
             />
-
         </main>
     );
 };

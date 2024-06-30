@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import {LoginSchema} from "../types/types";
 import {loginByUsername} from "src/features/Auth/modal/services/loginByUsername";
-import {AUTH_TOKEN_LOCAL_STORAGE} from "src/shared/const/localStorage.ts";
+import {AUTH_TOKEN_LOCAL_STORAGE} from "src/shared/const/localStorage";
 
 const initialState: LoginSchema = {
     name: '',

@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
-import {API_URL} from "src/shared/const/api.ts";
+import {API_URL} from "src/shared/const/api";
 import {FilmDetailsResponse, FilmParams, RateMovieParams, RateMovieResponse} from "../modal/types";
-import {AUTH_TOKEN_LOCAL_STORAGE, RATING_LOCAL_STORAGE} from "src/shared/const/localStorage.ts";
+import {AUTH_TOKEN_LOCAL_STORAGE, RATING_LOCAL_STORAGE} from "src/shared/const/localStorage";
 
 export const filmsDetailsApi = createApi({
     reducerPath: 'filmsDetailsApi',

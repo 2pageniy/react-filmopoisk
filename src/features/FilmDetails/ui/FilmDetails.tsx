@@ -1,3 +1,5 @@
+'use client';
+
 import {FC, useCallback, useEffect, useState} from "react";
 import {useGetDetailsFilmQuery, useRateMovieMutation} from "../api/getDetailsFilm";
 import {Loader} from "src/shared/ui/Loader";
@@ -8,6 +10,7 @@ import {Button} from "src/shared/ui/Button";
 import ArrowRightIcon from 'src/shared/assets/icons/arrow-right.svg';
 import ArrowLeftIcon from 'src/shared/assets/icons/arrow-left.svg';
 import {SetRating} from "src/features/SetRating";
+import Image from "next/image";
 
 import cl from './FilmDetails.module.scss';
 
