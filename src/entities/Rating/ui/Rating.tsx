@@ -6,6 +6,7 @@ import StarFilledOrangeIcon from 'src/shared/assets/icons/star-filled-orange.svg
 
 import cl from './Rating.module.scss';
 import classNames from "classnames";
+import {useDebounce} from "src/shared/lib/hooks/useDebounce.tsx";
 
 interface RatingProps {
     rating: number;
@@ -21,9 +22,10 @@ export const Rating: FC<RatingProps> = ({
     onFocus,
     setFocus = () => {},
     setRating = () => {},
-    onClick,
+    onClick = () => {},
     cls
 }) => {
+    const onHandleClick = useDebounce(onClick, 1000);
     return (
         <div
             className={classNames(cl.rating, cls)}
@@ -31,7 +33,7 @@ export const Rating: FC<RatingProps> = ({
                 setFocus(true);
             }}
             onMouseLeave={() => setFocus(false)}
-            onClick={onClick}
+            onClick={onHandleClick}
         >
             {new Array(5).fill(0).map((_, i) => {
                 const isFilled = rating >= i + 1;
