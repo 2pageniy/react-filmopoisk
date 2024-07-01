@@ -1,5 +1,17 @@
 Filmopoisk
 
+---
+Запустить проект React:
+* `git clone https://github.com/2pageniy/react-filmopoisk.git`
+* `npm install`
+* `npm start`
+
+Запустить проект Next:
+* `git checkout nextjs`
+* `npm install`
+* `npm run dev`
+---
+
 Функциональные требования:
 
 Шапка:
