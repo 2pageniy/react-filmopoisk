@@ -1,8 +1,8 @@
 import {LoginSchema} from "src/features/Auth/";
 import {store} from "./store";
 import {useDispatch} from "react-redux";
-import {filmsApi} from "src/features/FilmList/api/getFilms.ts";
-import {filmsDetailsApi} from "src/features/FilmDetails/api/getDetailsFilm.ts";
+import {filmsApi} from "src/features/FilmList/api/getFilms";
+import {filmsDetailsApi} from "src/features/FilmDetails/api/getDetailsFilm";
 
 export type StateSchema = {
     login: LoginSchema;
@@ -17,4 +17,4 @@ export type ThunkConfig<RejectValue = string> = {
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
-export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+export const useAppDispatch = useDispatch<AppDispatch>;

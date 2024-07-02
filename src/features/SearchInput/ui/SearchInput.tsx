@@ -1,3 +1,5 @@
+'use client';
+
 import {FC, useCallback, useState} from 'react';
 import {Input} from 'src/shared/ui/Input';
 import {Icon} from 'src/shared/ui/Icon';

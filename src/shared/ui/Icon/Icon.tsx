@@ -2,6 +2,7 @@ import {memo} from 'react';
 import classNames from 'classnames';
 
 import cl from './Icon.module.scss';
+import Image from "next/image";
 
 interface IconProps {
     src: string;
@@ -12,12 +13,12 @@ interface IconProps {
 
 export const Icon= memo(({
     src,
-    alt,
+    alt = '',
     size = 'medium',
     cls
 }: IconProps) => {
     return (
-        <img
+        <Image
             src={src}
             alt={alt}
             className={classNames(cl.img, cl[size], cls)}

@@ -6,7 +6,7 @@ import StarFilledOrangeIcon from 'src/shared/assets/icons/star-filled-orange.svg
 
 import cl from './Rating.module.scss';
 import classNames from "classnames";
-import {useDebounce} from "src/shared/lib/hooks/useDebounce.tsx";
+import {useDebounce} from "src/shared/lib/hooks/useDebounce";
 
 interface RatingProps {
     rating: number;
@@ -36,6 +36,7 @@ export const Rating: FC<RatingProps> = ({
             onClick={(e) => {
                 onHandleClick();
                 e.stopPropagation();
+                e.preventDefault();
             }}
         >
             {new Array(5).fill(0).map((_, i) => {

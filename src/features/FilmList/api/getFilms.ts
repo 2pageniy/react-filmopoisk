@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import {API_URL} from "src/shared/const/api.ts";
-import {addQueryParams} from "src/shared/lib/url/addQueryParams.ts";
+import {API_URL} from "src/shared/const/api";
+import {addQueryParams} from "src/shared/lib/url/addQueryParams";
 import type {FilmParams, FilmsResponse} from "../modal/types";
 
 export const filmsApi = createApi({

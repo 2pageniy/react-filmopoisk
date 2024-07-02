@@ -1,3 +1,5 @@
+'use client';
+
 import {useCallback, useState} from "react";
 import {Button} from "src/shared/ui/Button";
 import {AuthForm} from "../AuthForm/AuthForm";

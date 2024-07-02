@@ -1,3 +1,5 @@
+'use client';
+
 import {FC, useCallback, useEffect, useState} from "react";
 import {useGetDetailsFilmQuery, useRateMovieMutation} from "../api/getDetailsFilm";
 import {Loader} from "src/shared/ui/Loader";
@@ -8,6 +10,7 @@ import {Button} from "src/shared/ui/Button";
 import ArrowRightIcon from 'src/shared/assets/icons/arrow-right.svg';
 import ArrowLeftIcon from 'src/shared/assets/icons/arrow-left.svg';
 import {SetRating} from "src/features/SetRating";
+import Image from "next/image";
 
 import cl from './FilmDetails.module.scss';
 
@@ -69,10 +72,12 @@ export const FilmDetails: FC<FilmDetailsProps> = ({
             <div
                 className={cl.card}
             >
-                <img
+                <Image
                     className={cl.image}
                     src={data.poster}
                     alt={data.title}
+                    width={400}
+                    height={500}
                 />
                 <div className={cl.info}>
                     <h2 className={cl.h2}>
@@ -104,7 +109,6 @@ export const FilmDetails: FC<FilmDetailsProps> = ({
                 </div>
                 <SetRating
                     initialRating={+data.rating}
-                    rateMovie={rateMovie}
                     movieId={id}
                     details
                 />
